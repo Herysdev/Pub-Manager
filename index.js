@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const { prefix, token } = require('./config.json');
 
 client.on('ready', function () {
-  console.log(`Connecte en tant ${client.user.tag}!`);
+  console.log(`${client.user.tag} est connecté !`);
 });
 
 client.on('message', message => {
@@ -15,8 +15,8 @@ client.on('message', message => {
   if (message.content.startsWith(`${prefix}ping`)) {
     message.channel.send('Pong.');
   }
-  else if (!message.content.startsWith(prefix) || message.content.startsWith(prefix)) {
-    message.channel.send('test');
-  }
-})
+  else (!message.content.startsWith(prefix) || message.content.startsWith(prefix));
+  message.channel.send('test');
+});
+
 client.login(token);
